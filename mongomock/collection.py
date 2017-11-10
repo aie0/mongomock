@@ -1690,6 +1690,11 @@ class Cursor(object):
         self._sort = sort
         self._projection = projection
         self._skip = skip
+        self.__id = None
+        self.__retrieved = False
+        self.__exhaust = None
+        self.__exhaust_mgr = None
+        
         self._factory = functools.partial(collection._get_dataset,
                                           spec, sort, projection, dict)
         # pymongo limit defaults to 0, returning everything
